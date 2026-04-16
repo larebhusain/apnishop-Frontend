@@ -1,0 +1,213 @@
+/* ===== COMPACT CONTAINER – NO BOXES, CLEAN TEXT ===== */
+.categories-page-wrapper {
+  position: relative;
+  background: radial-gradient(circle at 10% 20%, rgba(10, 20, 40, 1) 0%, rgba(2, 6, 20, 1) 100%);
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Poppins', sans-serif;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+}
+
+/* ===== ANIMATED BACKGROUND BLOBS ===== */
+.bg-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: floatBlob 22s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  width: 25vw;
+  height: 25vw;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.4), rgba(139, 92, 246, 0.1));
+  top: -10%;
+  left: -5%;
+  animation-duration: 28s;
+}
+
+.blob-2 {
+  width: 20vw;
+  height: 20vw;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3), rgba(219, 39, 119, 0.08));
+  bottom: -5%;
+  right: -5%;
+  animation-duration: 32s;
+  animation-delay: -4s;
+}
+
+.blob-3 {
+  width: 18vw;
+  height: 18vw;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.3), rgba(13, 148, 136, 0.08));
+  top: 50%;
+  left: 75%;
+  animation-duration: 25s;
+  animation-delay: -8s;
+}
+
+.blob-4 {
+  width: 15vw;
+  height: 15vw;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(249, 115, 22, 0.08));
+  bottom: 15%;
+  left: 10%;
+  animation-duration: 35s;
+  animation-delay: -2s;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(3%, 3%) scale(1.06); }
+}
+
+/* ===== MAIN CONTAINER ===== */
+.categories-container {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== HEADING ===== */
+.heading-section {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.page-heading {
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, #c4b5fd, #a78bfa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0.2rem;
+  text-shadow: none; /* removed any text shadow */
+}
+
+.heading-glow {
+  position: absolute;
+  bottom: -3px;
+  left: 15%;
+  width: 70%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, #ec4899, #14b8a6, transparent);
+  border-radius: 2px;
+  filter: blur(1px);
+}
+
+.heading-subtitle {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  max-width: 300px;
+  margin: 0 auto;
+  text-shadow: none;
+}
+
+/* ===== RESPONSIVE GRID – tight, professional spacing ===== */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 540px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
+/* ===== PURE TEXT LINKS – CLEAN, NO SHADOWS ===== */
+.category-card {
+  display: block;
+  text-decoration: none;
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  text-align: center; /* center align the text */
+}
+
+.card-glow-border {
+  display: none;
+}
+
+.card-inner {
+  padding: 0;
+  display: block;
+}
+
+.card-icon {
+  display: none;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75); /* softer, no white shadow */
+  background: none;
+  margin: 0;
+  letter-spacing: -0.1px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-shadow: none; /* removed any text shadow */
+  opacity: 0.9;
+}
+
+/* No dot prefix, no underline, just clean text */
+.card-title::before {
+  display: none;
+}
+
+.card-hover-reveal {
+  display: none;
+}
+
+/* ===== HOVER EFFECTS – smooth color transition ===== */
+.category-card:hover .card-title {
+  color: #a78bfa;
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE TOUCH ===== */
+@media (max-width: 540px) {
+  .card-title {
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== ACCESSIBILITY FOCUS ===== */
+.category-card:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

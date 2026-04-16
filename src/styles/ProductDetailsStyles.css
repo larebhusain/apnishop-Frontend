@@ -1,0 +1,292 @@
+/* ProductDetailsStyles.css - Fixed Full Image + Premium UI */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background: radial-gradient(circle at top left,#021129,#000814 70%);
+  color:#fff;
+}
+
+/* ===============================
+   MAIN CONTAINER
+=================================*/
+.modern-product-container{
+  max-width:1400px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+/* ===============================
+   HERO SECTION
+=================================*/
+.product-hero{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:40px;
+  padding:35px;
+  border-radius:28px;
+  background:rgba(8,18,35,0.72);
+  border:1px solid rgba(0,153,255,0.22);
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+  backdrop-filter: blur(14px);
+}
+
+/* ===============================
+   IMAGE SIDE FIXED
+=================================*/
+.product-image-wrapper{
+  width:100%;
+  min-height:500px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:22px;
+  overflow:hidden;
+  background:linear-gradient(145deg,#08101d,#0d1b30);
+  padding:20px;
+}
+
+/* BRO YOUR MAIN ISSUE WAS HERE */
+/* contain laga hua tha isliye image chhoti aa rahi thi */
+/* cover + fixed height = full big image */
+
+.product-main-image{
+  width:100%;
+  height:100%;
+  min-height:460px;
+  object-fit:cover;
+  border-radius:18px;
+  transition:0.4s ease;
+}
+
+.product-main-image:hover{
+  transform:scale(1.04);
+}
+
+/* ===============================
+   RIGHT SIDE INFO
+=================================*/
+.product-info-wrapper{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:22px;
+}
+
+.product-category-badge{
+  width:max-content;
+  padding:8px 18px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#2759ff,#4bc5ff);
+  color:white;
+}
+
+.product-title{
+  font-size:42px;
+  font-weight:800;
+  line-height:1.2;
+  -webkit-background:text;
+  background:linear-gradient(90deg,#ffffff,#80d8ff);
+  -webkit-text-fill-color:transparent;
+}
+
+.product-description{
+  font-size:17px;
+  line-height:1.7;
+  color:#d5e6ff;
+  border-left:4px solid #1f9dff;
+  padding-left:16px;
+}
+
+.product-price-row{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.product-price{
+  font-size:38px;
+  font-weight:800;
+  color:#00ffcc;
+  text-shadow:0 0 15px rgba(0,255,204,.3);
+}
+
+/* ===============================
+   BUTTON
+=================================*/
+.modern-cart-btn{
+  padding:15px 32px;
+  border:none;
+  border-radius:60px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(90deg,#007cf0,#00dfd8);
+  transition:.35s ease;
+  box-shadow:0 10px 25px rgba(0,153,255,.35);
+}
+
+.modern-cart-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 18px 30px rgba(0,153,255,.45);
+}
+
+/* ===============================
+   SIMILAR PRODUCTS
+=================================*/
+.similar-products-section{
+  margin-top:60px;
+}
+
+.section-header h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.accent-line{
+  width:90px;
+  height:4px;
+  border-radius:20px;
+  background:linear-gradient(90deg,#00d2ff,#3a7bd5);
+}
+
+.products-grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.similar-product-card{
+  background:rgba(8,18,35,.8);
+  border-radius:22px;
+  overflow:hidden;
+  transition:.35s ease;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.similar-product-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 30px rgba(0,153,255,.18);
+}
+
+.card-image-wrapper{
+  width:100%;
+  height:260px;
+  overflow:hidden;
+}
+
+.card-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.similar-product-card:hover .card-image{
+  transform:scale(1.08);
+}
+
+.card-content{
+  padding:18px;
+}
+
+.card-title{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.card-description{
+  font-size:14px;
+  color:#bfd1e6;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.card-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.card-price{
+  font-size:24px;
+  font-weight:800;
+  color:#00ffd0;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+=================================*/
+@media(max-width:992px){
+
+.product-hero{
+  grid-template-columns:1fr;
+}
+
+.product-image-wrapper{
+  min-height:420px;
+}
+
+.product-main-image{
+  min-height:380px;
+}
+
+.product-title{
+  font-size:34px;
+}
+
+}
+
+@media(max-width:576px){
+
+.product-hero{
+  padding:18px;
+}
+
+.product-image-wrapper{
+  min-height:320px;
+}
+
+.product-main-image{
+  min-height:280px;
+}
+
+.product-title{
+  font-size:28px;
+}
+
+.product-description{
+  font-size:15px;
+}
+
+.product-price{
+  font-size:30px;
+}
+
+.modern-cart-btn{
+  width:100%;
+}
+
+.card-footer{
+  flex-direction:column;
+  align-items:stretch;
+}
+
+}

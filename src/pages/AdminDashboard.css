@@ -1,0 +1,202 @@
+ /* ===== GLOBAL DASHBOARD WRAPPER ===== */
+.admin-dashboard-wrapper {
+  min-height: calc(100vh - 70px);
+  padding: 2rem;
+  background: radial-gradient(circle at 10% 20%, rgba(15, 20, 35, 0.95), rgba(5, 8, 20, 0.98));
+  backdrop-filter: blur(2px);
+}
+
+/* Grid layout – replaces Bootstrap row/col */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Sidebar – AdminMenu will inherit its own styles, but we ensure container */
+.dashboard-sidebar {
+  position: sticky;
+  top: 90px;
+  height: fit-content;
+}
+
+/* Main content area */
+.dashboard-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+/* ===== 3D GLASS CARD for Admin Info ===== */
+.admin-card {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(20, 30, 45, 0.65);
+  backdrop-filter: blur(16px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3), 
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+              0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  transform: translateY(0) rotateX(0deg);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.admin-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 0 35px 55px -15px rgba(0, 0, 0, 0.4),
+              0 0 0 2px rgba(168, 85, 247, 0.3) inset;
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+/* Card Header */
+.admin-card-header {
+  position: relative;
+  padding: 1.8rem 2rem 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 8px 15px rgba(168, 85, 247, 0.4));
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.admin-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.admin-glow {
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #a855f7, #3b82f6, transparent);
+  filter: blur(2px);
+}
+
+/* Card Body */
+.admin-card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.info-row:hover {
+  background: rgba(168, 85, 247, 0.15);
+  transform: translateX(6px);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.info-label {
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.info-value {
+  font-weight: 700;
+  color: #f1f5f9;
+  font-size: 1rem;
+  word-break: break-word;
+  text-align: right;
+  background: linear-gradient(135deg, #e2e8f0, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card Footer */
+.admin-card-footer {
+  padding: 1rem 2rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  70% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .dashboard-sidebar {
+    position: static;
+  }
+  .admin-dashboard-wrapper {
+    padding: 1rem;
+  }
+  .admin-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .info-value {
+    text-align: left;
+  }
+  .admin-title {
+    font-size: 1.4rem;
+  }
+  .admin-card-body {
+    padding: 1.2rem;
+  }
+}

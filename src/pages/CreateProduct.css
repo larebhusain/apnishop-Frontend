@@ -1,0 +1,283 @@
+ /* CreateProduct.css – Futuristic 3D Glass Design */
+
+/* Container & Grid */
+.create-product-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, #0a0f1e, #05080f);
+  padding: 2rem;
+}
+
+.create-product-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-sidebar {
+  position: sticky;
+  top: 90px;
+  height: fit-content;
+}
+
+.form-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass Form Card */
+.glass-form-card {
+  background: rgba(20, 30, 45, 0.65);
+  backdrop-filter: blur(16px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  width: 100%;
+  max-width: 700px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.glass-form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 35px 55px -15px rgba(0, 0, 0, 0.5);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+/* Header */
+.form-header {
+  padding: 1.8rem 2rem 1rem;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.title-glow {
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #a855f7, #3b82f6, transparent);
+  filter: blur(3px);
+}
+
+/* Form Body */
+.form-body {
+  padding: 2rem;
+}
+
+/* Input Groups */
+.input-group-glass {
+  margin-bottom: 1.5rem;
+}
+
+.glass-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.glass-input,
+.glass-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 0.8rem 1rem;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus,
+.glass-textarea:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.glass-textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Ant Design Select Overrides */
+.glass-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 1rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.glass-select .ant-select-selector {
+  background: transparent !important;
+  color: #f1f5f9 !important;
+  padding: 0.8rem 1rem !important;
+  height: auto !important;
+}
+
+.glass-select .ant-select-selection-placeholder {
+  color: #94a3b8 !important;
+}
+
+.glass-dropdown {
+  background: rgba(15, 25, 35, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  border-radius: 1rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.glass-dropdown .ant-select-item {
+  color: #f1f5f9 !important;
+}
+
+.glass-dropdown .ant-select-item-option-active {
+  background: rgba(168, 85, 247, 0.3) !important;
+}
+
+/* File Upload */
+.upload-area {
+  margin-bottom: 1rem;
+}
+
+.upload-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.1));
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 2rem;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  color: #c084fc;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.upload-btn:hover {
+  background: rgba(168, 85, 247, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
+}
+
+.image-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.preview-img {
+  max-height: 200px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  transition: transform 0.2s;
+}
+
+.preview-img:hover {
+  transform: scale(1.02);
+}
+
+/* Form Row (2 columns) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.half {
+  margin-bottom: 0;
+}
+
+/* Submit Button */
+.form-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.glass-button {
+  position: relative;
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  border: none;
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: white;
+  font-size: 1rem;
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.glass-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+}
+
+.glass-button:hover .btn-glow {
+  left: 100%;
+}
+
+.glass-button:active {
+  transform: translateY(2px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .create-product-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    position: static;
+  }
+  .create-product-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .form-body {
+    padding: 1.5rem;
+  }
+  .form-title {
+    font-size: 1.4rem;
+  }
+}

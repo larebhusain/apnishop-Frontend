@@ -1,0 +1,141 @@
+/* --- Modern & Responsive Product Card UI (Indigo Theme) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Main Container */
+.container {
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 60px;
+    background-color: #f8fafc; /* Premium Background */
+}
+
+/* Heading Styling - Latest Typography */
+h4 {
+    color: #0f172a; /* Deep Slate */
+    font-weight: 800;
+    margin-top: 30px;
+    letter-spacing: -0.5px;
+    font-size: 1.8rem;
+}
+
+h6 {
+    color: #64748b;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Card Design - Apple/Stripe Style */
+.product-card {
+    width: 100%;
+    max-width: 18rem;
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 28px !important; /* Extra Rounded */
+    background: #ffffff;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Hover effect on card */
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    border-color: #6366f1 !important; /* Indigo highlight */
+}
+
+/* Image Container */
+.img-container {
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card-img-top {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 12px;
+}
+
+/* Price/Badge Styling */
+.badge {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    background-color: #10b981 !important; /* Emerald Green for Price */
+    font-weight: 700;
+}
+
+/* Modern Button Customization */
+.grow {
+    transition: all 0.3s ease;
+    border-radius: 14px !important;
+    padding: 12px !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    border: none !important;
+    background-color: #6366f1 !important; /* Modern Indigo */
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.grow:hover {
+    transform: translateY(-2px);
+    background-color: #4f46e5 !important; /* Darker Indigo */
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* Secondary Button (Optional) */
+.btn-outline-primary {
+    border: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+    background: #f1f5f9 !important;
+}
+
+.btn-outline-primary:hover {
+    background: #1e293b !important;
+    color: white !important;
+}
+
+/* --- 📱 Full Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .product-card {
+        max-width: 100%;
+        margin: 15px 0 !important;
+        border-radius: 20px !important;
+    }
+    
+    .img-container {
+        height: 180px;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,505 @@
+/* Footer.css - Dark 3D Glassmorphism (No White) */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ========================================
+   CSS Variables - Dark Theme
+   ======================================== */
+:root {
+  --primary: #3b82f6;
+  --primary-glow: #2563eb;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+  --glass-bg: rgba(8, 10, 18, 0.92);
+  --glass-border: rgba(59, 130, 246, 0.25);
+  --glass-border-light: rgba(59, 130, 246, 0.12);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --shadow-3d: 0 -15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.2) inset;
+  --shadow-3d-hover: 0 -20px 45px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(59, 130, 246, 0.4) inset;
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-smooth: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* ========================================
+   Main Footer Container
+   ======================================== */
+.premium-footer-container {
+  position: relative;
+  margin-top: auto;
+  overflow: hidden;
+  animation: footerSlideUp 0.6s ease-out;
+  perspective: 1000px;
+}
+
+@keyframes footerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotateX(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+/* Dark Animated Blobs */
+.footer-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  z-index: 0;
+  animation: blobFloat3D 22s infinite ease-in-out;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #2563eb, #1e3a8a);
+  bottom: -150px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #8b5cf6, #4c1d95);
+  top: -100px;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+.blob-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #06b6d4, #0e7490);
+  bottom: 20%;
+  right: -80px;
+  animation-delay: 12s;
+}
+
+@keyframes blobFloat3D {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.25;
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.2) rotate(5deg);
+    opacity: 0.4;
+  }
+  66% {
+    transform: translate(-30px, 20px) scale(0.9) rotate(-3deg);
+    opacity: 0.3;
+  }
+}
+
+/* ========================================
+   Glassmorphism Footer Card - Dark
+   ======================================== */
+.premium-footer-glass {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  box-shadow: var(--shadow-3d);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.premium-footer-glass:hover {
+  box-shadow: var(--shadow-3d-hover);
+  transform: translateY(-4px) translateZ(10px);
+}
+
+/* Top Neon Glow Line - No white */
+.footer-top-glow {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  right: -50%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #3b82f6, 
+    #8b5cf6, 
+    #06b6d4, 
+    #3b82f6, 
+    transparent);
+  background-size: 200% 100%;
+  animation: glowSlide 4s ease infinite;
+  filter: blur(1px);
+}
+
+@keyframes glowSlide {
+  0% { transform: translateX(-100%); opacity: 0.4; }
+  50% { transform: translateX(0%); opacity: 0.9; }
+  100% { transform: translateX(100%); opacity: 0.4; }
+}
+
+/* ========================================
+   Footer Content Layout
+   ======================================== */
+.premium-footer-content {
+  position: relative;
+  padding: 2.5rem 2rem 2rem;
+  z-index: 2;
+}
+
+/* ========================================
+   Brand Section - Dark with Neon
+   ======================================== */
+.footer-brand-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.brand-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 1px solid var(--glass-border);
+  transition: var(--transition-bounce);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.brand-icon-wrapper:hover {
+  transform: scale(1.1) rotate(10deg);
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.brand-icon {
+  font-size: 2rem;
+  transition: transform 0.3s;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
+}
+
+.footer-copyright-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.brand-highlight {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.3);
+}
+
+/* Brand Decoration - Neon */
+.brand-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0.8rem;
+}
+
+.deco-line {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 2px;
+  animation: linePulse 2s infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% { width: 50px; opacity: 0.5; }
+  50% { width: 80px; opacity: 1; }
+}
+
+.deco-dot {
+  width: 6px;
+  height: 6px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  animation: dotGlow 2s infinite;
+  box-shadow: 0 0 4px #8b5cf6;
+}
+
+@keyframes dotGlow {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; box-shadow: 0 0 12px #8b5cf6; }
+}
+
+/* ========================================
+   Navigation Links - Dark Glass Pills
+   ======================================== */
+.footer-nav-section {
+  margin: 1.8rem 0;
+}
+
+.footer-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 60px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: var(--transition-bounce);
+  overflow: hidden;
+  border: 1px solid var(--glass-border-light);
+  backdrop-filter: blur(5px);
+  transform-style: preserve-3d;
+}
+
+.link-icon {
+  font-size: 1rem;
+  transition: var(--transition-bounce);
+}
+
+.link-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.link-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.footer-nav-link:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  transform: translateY(-5px) scale(1.02);
+  color: #f1f5f9;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.35);
+}
+
+.footer-nav-link:hover .link-icon {
+  transform: translateY(-2px) scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 6px #3b82f6);
+}
+
+.footer-nav-link:hover .link-glow {
+  opacity: 1;
+  animation: rotateGlow 2s linear infinite;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Link Separator - Neon Dot */
+.link-separator {
+  display: flex;
+  align-items: center;
+}
+
+.separator-dot {
+  width: 5px;
+  height: 5px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: separatorPulse 1.5s infinite;
+  box-shadow: 0 0 6px #3b82f6;
+}
+
+@keyframes separatorPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* ========================================
+   Bottom Decoration - Dark Shine & Dots
+   ======================================== */
+.footer-bottom-decoration {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footer-shine {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), transparent);
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+  animation: shineMove 3s infinite;
+}
+
+@keyframes shineMove {
+  0% { width: 60px; opacity: 0.3; transform: translateX(-10px); }
+  50% { width: 180px; opacity: 0.7; transform: translateX(0); }
+  100% { width: 60px; opacity: 0.3; transform: translateX(10px); }
+}
+
+.footer-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-dots .dot {
+  width: 5px;
+  height: 5px;
+  background: #475569;
+  border-radius: 50%;
+  transition: all 0.2s;
+  animation: dotFade 1.5s infinite;
+}
+
+.footer-dots .dot:nth-child(1) { animation-delay: 0s; }
+.footer-dots .dot:nth-child(2) { animation-delay: 0.2s; }
+.footer-dots .dot:nth-child(3) { animation-delay: 0.4s; }
+.footer-dots .dot:nth-child(4) { animation-delay: 0.6s; }
+.footer-dots .dot:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes dotFade {
+  0%, 100% { opacity: 0.3; transform: scale(1); background: #475569; }
+  50% { opacity: 1; transform: scale(1.5); background: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
+}
+
+.footer-dots .dot:hover {
+  transform: scale(2);
+  background: #3b82f6;
+  cursor: pointer;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+  .premium-footer-glass {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  .premium-footer-content {
+    padding: 1.8rem 1rem 1.5rem;
+  }
+  .footer-copyright-text {
+    font-size: 0.85rem;
+  }
+  .brand-icon-wrapper {
+    width: 55px;
+    height: 55px;
+  }
+  .brand-icon {
+    font-size: 1.6rem;
+  }
+  .footer-nav-links {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .footer-nav-link {
+    width: 90%;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+  }
+  .link-separator {
+    display: none;
+  }
+  .footer-shine {
+    width: 80px;
+  }
+  .deco-line {
+    width: 40px;
+  }
+  .footer-bg-blob {
+    filter: blur(50px);
+  }
+  .blob-1, .blob-2, .blob-3 {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .premium-footer-content {
+    padding: 2rem 1.5rem;
+  }
+  .footer-nav-link {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* ========================================
+   Reduced Motion & Accessibility
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .footer-nav-link:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.footer-nav-link:focus-visible {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  background: rgba(59, 130, 246, 0.2);
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+  .premium-footer-container {
+    background: #0f172a;
+    color: black;
+  }
+  .premium-footer-glass {
+    background: #1e293b;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+  .footer-bg-blob,
+  .footer-top-glow,
+  .brand-decoration,
+  .footer-bottom-decoration,
+  .link-glow {
+    display: none;
+  }
+  .footer-nav-link {
+    color: #cbd5e1;
+    background: #334155;
+    border: 1px solid #475569;
+  }
+  .brand-highlight {
+    color: #60a5fa;
+    -webkit-background : unset;
+    background: none;
+  }
+}
