@@ -284,7 +284,8 @@
   position: static; /* sticky hata diya */
   top: auto;
   align-self: flex-start;
-  animation: fadeSlideRight 0.6s ease-out;
+  animation: fadeSlideRight 0.6s ease-out; 
+  padding-top: 4rem;
 }
 .page-layout {
   display: grid;
@@ -465,7 +466,7 @@
 .products-title-3d {
   font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
+  color: hwb(218 87% 10%);
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
