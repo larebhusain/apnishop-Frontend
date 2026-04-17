@@ -206,7 +206,7 @@ const CreateProduct = () => {
   // get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -239,7 +239,7 @@ const CreateProduct = () => {
         toast.error(data?.message);
       } else {
         toast.success("Product Created Successfully");
-        navigate("/dashboard/admin/products");
+        navigate(`${process.env.REACT_APP_API}/dashboard/admin/products`);
       }
     } catch (error) {
       console.log(error);

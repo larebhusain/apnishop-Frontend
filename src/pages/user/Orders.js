@@ -14,7 +14,7 @@ const Orders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/orders");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/orders`);
       console.log("Orders data:", data);
       // Debug: Check if products have _id
       data?.forEach(order => {
@@ -44,7 +44,7 @@ const Orders = () => {
   const getProductImageUrl = (productId, retryCount = 0) => {
     if (!productId) return null;
     // Base URL without timestamp for normal loading
-    return `/api/v1/product/product-photo/${productId}`;
+    return `${process.env.REACT_APP_API}/api/v1/product/product-photo/${productId}`;
   };
 
   return (

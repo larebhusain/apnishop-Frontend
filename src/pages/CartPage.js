@@ -48,7 +48,7 @@ const CartPage = () => {
 
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/braintree/token");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/braintree/token`);
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -63,7 +63,7 @@ const CartPage = () => {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
       
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/braintree/payment`, {
         nonce,
         cart,
       });
@@ -74,7 +74,7 @@ const CartPage = () => {
         localStorage.removeItem("cart");
         setCart([]);
         toast.success("Payment Completed Successfully");
-        navigate("/dashboard/user/orders");
+        navigate(`${process.env.REACT_APP_API}/dashboard/user/orders`);
       } else {
         toast.error(data?.message || "Payment Failed");
       }
@@ -145,7 +145,7 @@ const CartPage = () => {
                   <div className="empty-cart-icon">🛒</div>
                   <h3>Your cart is empty</h3>
                   <p>Looks like you haven't added any items yet</p>
-                  <button className="shop-now-btn" onClick={() => navigate("/")}>
+                  <button className="shop-now-btn" onClick={() => navigate(`${process.env.REACT_APP_API}/`)}>
                     Start Shopping
                   </button>
                 </div>
@@ -177,7 +177,7 @@ const CartPage = () => {
                     <p className="address-text">{auth?.user?.address}</p>
                     <button
                       className="update-address"
-                      onClick={() => navigate("/dashboard/user/profile")}
+                      onClick={() => navigate(`${process.env.REACT_APP_API}/dashboard/user/profile`)}
                     >
                       Update Address
                     </button>

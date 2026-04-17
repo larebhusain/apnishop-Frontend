@@ -17,7 +17,7 @@ const SupportMessages = () => {
   const fetchMessages = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get("/api/v1/contact/my-messages");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/contact/my-messages`);
       if (data.success) {
         setMessages(data.messages);
       }

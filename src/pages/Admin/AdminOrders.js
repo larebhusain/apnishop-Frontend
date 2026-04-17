@@ -153,7 +153,7 @@ function AdminOrders() {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-orders");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/all-orders`);
       if (data?.orders) {
         setOrders(data.orders);
       } else {
@@ -170,7 +170,7 @@ function AdminOrders() {
 
   const handleChange = async (orderId, value) => {
     try {
-      await axios.put(`/api/v1/auth/order-status/${orderId}`, {
+      await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`, {
         status: value,
       });
       getOrders();
@@ -257,7 +257,7 @@ function AdminOrders() {
                         <div className="product-card-3d" key={p._id}>
                           <div className="product-image">
                             <img
-                              src={`/api/v1/product/product-photo/${p._id}`}
+                              src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                               alt={p.name}
                             />
                           </div>

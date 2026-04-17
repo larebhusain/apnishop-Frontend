@@ -64,7 +64,7 @@ const Contact = () => {
     setLoading(true);
     
     try {
-      const { data } = await axios.post("/api/v1/contact/send-message", formData);
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/contact/send-message`, formData);
       
       if (data.success) {
         toast.success(data.message || "Message sent successfully!");

@@ -93,7 +93,7 @@ const Dashboard = () => {
   // Fetch unread notification count - DO NOT CHANGE
   const fetchUnreadCount = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/unread-notifications");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/unread-notifications`);
       setUnreadCount(data.count);
     } catch (error) {
       console.log("Error fetching unread count:", error);

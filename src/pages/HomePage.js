@@ -300,7 +300,7 @@ const HomePage = () => {
 
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -311,7 +311,7 @@ const HomePage = () => {
 
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/product-count");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-count`);
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -326,7 +326,7 @@ const HomePage = () => {
   const getAllProducts = useCallback(async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}?limit=${productsPerPage}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}?limit=${productsPerPage}`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -338,7 +338,7 @@ const HomePage = () => {
   const loadMore = useCallback(async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}?limit=${productsPerPage}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}?limit=${productsPerPage}`);
       setLoading(false);
       setProducts((prev) => {
         const existingIds = new Set(prev.map(p => p._id));
@@ -376,7 +376,7 @@ const HomePage = () => {
   const filterProduct = useCallback(async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/v1/product/product-filters", {
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
         checked,
         radio,
       });
@@ -572,7 +572,7 @@ const HomePage = () => {
                           <div className="product-badge-3d">Hot 🔥</div>
                           <div className="product-image-wrapper-3d">
                             <img
-                              src={`/api/v1/product/product-photo/${p._id}`}
+                              src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                               className="product-image-3d"
                               alt={p.name}
                             />

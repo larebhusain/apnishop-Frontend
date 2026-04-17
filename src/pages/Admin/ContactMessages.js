@@ -428,7 +428,7 @@ const ContactMessages = () => {
   const fetchMessages = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get("/api/v1/contact/all-messages");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/contact/all-messages`);
       if (data.success) {
         setMessages(data.messages);
         setStats({
@@ -461,7 +461,7 @@ const ContactMessages = () => {
     // Mark as read if unread
     if (message.status === "unread") {
       try {
-        await axios.put(`/api/v1/contact/status/${message._id}`, {
+        await axios.put(`${process.env.REACT_APP_API}/api/v1/contact/status/${message._id}`, {
           status: "read",
         });
         fetchMessages();
@@ -487,7 +487,7 @@ const ContactMessages = () => {
 
     setSendingReply(true);
     try {
-      const { data } = await axios.put(`/api/v1/contact/reply/${selectedMessage._id}`, {
+      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/contact/reply/${selectedMessage._id}`, {
         adminReply: replyText,
         repliedBy: adminName,
       });
@@ -510,7 +510,7 @@ const ContactMessages = () => {
   const handleDeleteMessage = async (id) => {
     if (window.confirm("Are you sure you want to delete this message?")) {
       try {
-        await axios.delete(`/api/v1/contact/delete/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API}/api/v1/contact/delete/${id}`);
         toast.success("Message deleted successfully");
         fetchMessages();
       } catch (error) {

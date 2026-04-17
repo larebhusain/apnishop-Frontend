@@ -98,7 +98,7 @@ const Users = () => {
   // Handle user actions
   const handleBlockUser = async (userId) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/block-user/${userId}`);
+      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/block-user/${userId}`);
       if (data.success) {
         toast.success("User blocked successfully");
         fetchUsers();
@@ -110,7 +110,7 @@ const Users = () => {
 
   const handleUnblockUser = async (userId) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/unblock-user/${userId}`);
+      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/unblock-user/${userId}`);
       if (data.success) {
         toast.success("User unblocked successfully");
         fetchUsers();
@@ -122,7 +122,7 @@ const Users = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      const { data } = await axios.delete(`/api/v1/auth/delete-user/${userId}`);
+      const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/auth/delete-user/${userId}`);
       if (data.success) {
         toast.success("User deleted successfully");
         fetchUsers();
@@ -135,7 +135,7 @@ const Users = () => {
 
   const handleMakeAdmin = async (userId) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/make-admin/${userId}`);
+      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/make-admin/${userId}`);
       if (data.success) {
         toast.success("User promoted to admin successfully");
         fetchUsers();
