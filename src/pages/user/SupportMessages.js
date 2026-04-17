@@ -3,32 +3,61 @@ import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { FaReply, FaUser, FaCalendar, FaCheckCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {useAuth}from "../../context/auth";
 import "./SupportMessages.css";
 
 const SupportMessages = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [auth] = useAuth();
 //   const [selectedMessage, setSelectedMessage] = useState(null);
 
   useEffect(() => {
+  if (auth?.token) {
     fetchMessages();
-  }, []);
+  }
+// eslint-disable-next-line no-use-before-define, react-hooks/exhaustive-deps
+}, [auth?.token]);
 
-  const fetchMessages = async () => {
-    setLoading(true);
-    try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/contact/my-messages`);
-      if (data.success) {
-        setMessages(data.messages);
+  // const fetchMessages = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/contact/my-messages`);
+  //     if (data.success) {
+  //       setMessages(data.messages);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching messages:", error);
+  //     toast.error("Failed to load messages");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+const fetchMessages = async () => {
+  setLoading(true);
+
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API}/api/v1/contact/my-messages`,
+      {
+        headers: {
+          Authorization: `Bearer ${auth?.token}`,
+        },
       }
-    } catch (error) {
-      console.error("Error fetching messages:", error);
-      toast.error("Failed to load messages");
-    } finally {
-      setLoading(false);
-    }
-  };
+    );
 
+    if (data.success) {
+      setMessages(data.messages);
+    }
+
+  } catch (error) {
+    console.error("Error fetching messages:", error);
+    toast.error("Failed to load messages");
+  } finally {
+    setLoading(false);
+  }
+};
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
       year: "numeric",
@@ -77,7 +106,7 @@ const SupportMessages = () => {
               <FaReply className="empty-icon" />
               <h3>No Support Messages</h3>
               <p>You haven't sent any support messages yet.</p>
-              <a href="/contact" className="contact-link">Contact Support</a>
+              <Link to ="/contact" className="contact-link">Contact Support</Link>
             </div>
           ) : (
             <div className="messages-container">
