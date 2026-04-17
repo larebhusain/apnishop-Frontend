@@ -70,7 +70,7 @@ const Users = () => {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        `/api/v1/auth/all-users?search=${searchTerm}&page=${currentPage}&limit=10`
+        `${process.env.REACT_APP_API}/api/v1/auth/all-users?search=${searchTerm}&page=${currentPage}&limit=10`
       );
       if (data.success) {
         setUsers(data.users);

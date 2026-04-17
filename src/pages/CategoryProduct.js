@@ -40,7 +40,7 @@ const CategoryProduct = () => {
             <div className="card m-3 product-card border-0 shadow-sm" key={p._id}>
               <div className="img-container">
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top p-2"
                   alt={p.name}
                 />

@@ -247,7 +247,7 @@ const Dashboard = () => {
                       <div className="action-icon">📦</div>
                       <span className="action-text">My Orders</span>
                     </div>
-                    <div className="action-item" onClick={() => window.location.href = '/cart'}>
+                    <div className="action-item" onClick={() => window.location.href = 'process.evn/cart'}>
                       <div className="action-icon">🛒</div>
                       <span className="action-text">View Cart</span>
                     </div>

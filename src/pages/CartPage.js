@@ -74,7 +74,7 @@ const CartPage = () => {
         localStorage.removeItem("cart");
         setCart([]);
         toast.success("Payment Completed Successfully");
-        navigate(`${process.env.REACT_APP_API}/dashboard/user/orders`);
+        navigate(`/dashboard/user/orders`);
       } else {
         toast.error(data?.message || "Payment Failed");
       }
@@ -119,7 +119,7 @@ const CartPage = () => {
                   <div className="cart-item" key={`${p._id}-${index}`}>
                     <div className="item-image">
                       <img
-                        src={`/api/v1/product/product-photo/${p._id}`}
+                        src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                         alt={p.name}
                       />
                     </div>
@@ -145,7 +145,7 @@ const CartPage = () => {
                   <div className="empty-cart-icon">🛒</div>
                   <h3>Your cart is empty</h3>
                   <p>Looks like you haven't added any items yet</p>
-                  <button className="shop-now-btn" onClick={() => navigate(`${process.env.REACT_APP_API}/`)}>
+                  <button className="shop-now-btn" onClick={() => navigate(`/`)}>
                     Start Shopping
                   </button>
                 </div>
@@ -177,7 +177,7 @@ const CartPage = () => {
                     <p className="address-text">{auth?.user?.address}</p>
                     <button
                       className="update-address"
-                      onClick={() => navigate(`${process.env.REACT_APP_API}/dashboard/user/profile`)}
+                      onClick={() => navigate(`/dashboard/user/profile`)}
                     >
                       Update Address
                     </button>
